@@ -7,3 +7,4 @@ print("cat", "dog", "mouse") #automatically adds a space
 
 print("cat", "dog", "mouse", sep="ABC") #automatically adds ABC as seperating character
 
+#end and sep are keyword arguments, and these are optional

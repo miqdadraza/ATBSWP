@@ -9,7 +9,7 @@ def hello(): #define function called hello
 new function with argument
 """
 
-def helloname(name): #define function called helloname, with argument needed name
+def helloname(name): #define function called helloname, with argument needed name. this is called a parameter
     """body of function below"""
     print("howdy"+name)
     print("Howdy!!!"+name)
@@ -18,6 +18,6 @@ hello()
 hello()
 hello()
 
-helloname("miqdad")
+helloname("miqdad") #here miqdad is the argument
 helloname("bhurani")
 
