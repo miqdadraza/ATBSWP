@@ -1,0 +1,13 @@
+Methods are functions that are "called on" values.
+The index() list method returns the index of an item in the list. variable.index('some list value'). if it doesnt exist, error. if duplicate, returns index of first time
+The append() list method adds a value to the end of a list. variable.append('some string')
+The insert() list method adds a value anywhere inside a list. variable.insert(1,'any string')
+The remove() list method removes an item, specified by the value, from a list. variable.remove('some string'). Will only remove the first instance
+Different from del: del variable[1] will remove from index 1
+
+Append and insert and index  and remove are just for lists, these are methods only for lists.
+The sort() list method sorts the items in a list. variable.sort()
+The sort() method's reverse=True keyword argument can make the sort() method sort in reverse order. variable.sort(reverse=True)
+Cannot sort string and integer
+Sort is ASCII based. Uppercase comes before lowercase. For true alphabetical sorting, variable.sort(key=str.lower)
+These list methods operate on the list "in place", rather than returning a new list value.
