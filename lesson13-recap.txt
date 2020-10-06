@@ -2,8 +2,16 @@ A list is a value that contains multiple values: [42, 3.14, ‘hello']
 The values in a list are also called items.
 You can access items in a list with its integer index.
 The indexes start at 0, not 1.
+You can have a list inside a listsecond index like spam[0][1] will go to the 0th list in spam, and then the first item in the list of list
 You can also use negative indexes: -1 refers to the last item, -2 refers to the second to last item, and so on.
-You can get multiple items from the list using a slice.
+You can get multiple items from the list using a slice. spam[1:3] starts at index 1 and goes to index 3 but not including 3
 The slice has two indexes. The new list's items start at the first index and go up to, but doesn't include, the second index.
+spam=[10,20,30]
+spam[1]='Hello' will show [10,'Hello',30] same can be done with slices
+spam=[10,20,30]
+spam[1:3]=['Cat','Dog','Mouse'] will change the indexes 1,2,3 and will give spam=[10,'Cat','Dog','Mouse']
+leaving out first index is like 0, and leaving last one is like the end of the list
+del spam[2] will delete the index 2
 The len() function, concatenation, and replication work the same way on lists that they do with strings.
-You can convert a value into a list by passing it to the list() function.
+You can convert a value into a list by passing it to the list() function. list('Hello') will give ["H","e","l","l","o"]
+in and not in can be used to find if something is in a list

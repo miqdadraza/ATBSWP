@@ -1,0 +1,58 @@
+Dictionaries contain key-value pairs. Keys are like a list's indexes.
+Example: key is size, value is fat
+>>> myCat={'size':'fat','color':'gray','disposition':'loud'}
+>>> myCat['size']
+'fat'
+>>> 'My chat has ' + myCat['color'] + 'fur'
+'My chat has grayfur'
+
+Dictionaries are mutable. Variables hold references to dictionary values, not the dictionary value itself.
+Dictionaries are unordered. There is no "first" key-value pair in a dictionary.
+You can check if key exists in dictionary it the in and not in  operators
+The keys(), values(), and items() methods will return list-like values of a dictionary's keys, vaues, and both keys and values, respectively. Example:
+>>> list(myCat.keys())
+['size', 'color', 'disposition']
+>>> list(myCat.values())
+['fat', 'gray', 'loud']
+>>> list(myCat.items())
+[('size', 'fat'), ('color', 'gray'), ('disposition', 'loud')]
+
+You can use these in for loops, example:
+
+>>> eggs={'name':'Zophie','species':'cat','age':8}
+>>> for k in eggs.keys():
+...     print(k)
+... 
+name
+species
+age
+
+Example 2 with items:
+>>> for k,v in eggs.items():
+...     print(k,v)
+... 
+name Zophie
+species cat
+age 8
+
+You can check specific values and keys using the in and not in. example:
+>>> eggs
+{'name': 'Zophie', 'species': 'cat', 'age': 8}
+>>> 'cat' in eggs.values()
+True
+
+The get() method can return a default value if a key doesn't exist. Example:
+>>> eggs
+{'name': 'Zophie', 'species': 'cat', 'age': 8}
+>>> eggs.get('age',0)
+8
+>>> eggs.get('color',0)
+0
+
+
+>>> picnicItems={'apples':5,'cups':2}
+>>> print('I am bringing ' + str(picnicItems.get('napkins',0)) + ' napkins to the picnic.')
+I am bringing 0 napkins to the picnic.
+
+The setdefault() method can set a value if a key doesn't exist.
+The pprint module's pprint() "pretty print" function can display a dictionary value cleanly. The pformat() function returns a string value of this output.

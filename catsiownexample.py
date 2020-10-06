@@ -6,4 +6,4 @@ try:
     else:
         print("I guess that is okay!")
 except:
-    print("type an integer pls")
+    print("type an integer pls")            #the try and except should go around the whole if else function
