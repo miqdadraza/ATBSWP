@@ -1,0 +1,52 @@
+Groups are created in regex strings with parentheses.
+The first set of parentheses is group 1, the second is 2, and so on.
+Calling group() or group(0) returns the full matching string, group(1) returns group 1's matching string, and so on.
+Use \( and \) to match literal parentheses in the regex string.
+The | pipe can match one of many possible groups.
+
+Example:
+
+>>> import re
+>>> phoneNumRegex = re.compile(r'\d\d\d-\d\d\d-\d\d\d\d')
+>>> phoneNumRegex.search('My number is 415-555-4242')
+<re.Match object; span=(13, 25), match='415-555-4242'>
+>>> mo = phoneNumRegex.search('My number is 415-555-4242')
+>>> mo.group
+<built-in method group of re.Match object at 0x100c101d0>
+>>> mo.group()
+'415-555-4242'
+>>> phoneNumRegex = re.compile(r'(\d\d\d)-(\d\d\d-\d\d\d\d)')
+>>> mo = phoneNumRegex.search('My number is 415-555-4242')
+>>> mo.group()
+'415-555-4242'
+>>> mo.group(1)
+'415'
+>>> mo.group(2)
+'555-4242'
+>>> phoneNumRegex = re.compile(r'\(\d\d\d\) \d\d\d-\d\d\d\d')
+>>> mo = phoneNumRegex.search('My number is (415) 555-5555')
+>>> mo.group()
+'(415) 555-5555'
+>>> 
+>>> 
+>>> 
+>>> 
+>>> 
+>>> 
+>>> 
+
+>>> batRegex = re.compile(r'Bat(man|mobile|copter|bat)')
+>>> mo = batRegex.search('Batmobile lost a wheel')
+>>> mo.group()                                             'Batmobile'
+>>> mo = batRegex.search('Batmotorcycle lost a wheel')
+>>> mo.group()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: 'NoneType' object has no attribute 'group'
+>>> mo.group(1)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: 'NoneType' object has no attribute 'group'
+>>> mo = batRegex.search('Batmobile lost a wheel')
+>>> mo.group(1)
+'mobile'

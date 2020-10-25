@@ -1,0 +1,103 @@
+The ? says the group matches zero or one times.
+Example:
+
+>>> import re
+>>> batRegex = re.compile(r'Bat(wo)?man')
+>>> mo = batRegex.search('The adventures of Batman')
+>>> mo.group
+<built-in method group of re.Match object at 0x10ea8c230>
+>>> mo.group()
+'Batman'
+>>> mo = batRegex.search('The adventures of Batwoman')
+>>> mo.group()
+'Batwoman'
+>>> mo = batRegex.search('The adventures of Batwowowoman')
+>>> mo.group()
+Traceback (most recent call last):
+  File "<input>", line 1, in <module>
+    mo.group()
+AttributeError: 'NoneType' object has no attribute 'group'
+>>> 
+>>> 
+>>> phoneRegex = re.compile(r'\d\d\d-\d\d\d-\d\d\d\d')
+>>> phoneRegex.search('My phone number is 415-555-4242. Cal
+l me tomorrow')
+<re.Match object; span=(19, 31), match='415-555-4242'>
+>>> mo = phoneRegex.search('My phone number is 415-555-4242
+. Call me tomorrow')
+>>> mo.group()
+'415-555-4242'
+>>> mo = phoneRegex.search('My phone number is 555-4242. Ca
+ll me tomorrow')
+>>> mo.group()
+Traceback (most recent call last):
+  File "<input>", line 1, in <module>
+    mo.group()
+AttributeError: 'NoneType' object has no attribute 'group'
+>>> 
+>>> phoneRegex = re.compile(r'(\d\d\d-)?\d\d\d-\d\d\d\d')
+>>> mo = phoneRegex.search('My phone number is 555-4242. Ca
+ll me tomorrow')
+>>> mo.group()
+'555-4242'
+>>> mo = phoneRegex.search('My phone number is 415-555-4242
+. Call me tomorrow')
+>>> mo.group()
+'415-555-4242'
+
+The * says the group matches zero or more times.
+Example:
+>>> import re
+>>> batRegex = re.compile(r'Bat(wo)*man')
+>>> mo = batRegex.search('The adventures of Batwoman')
+>>> mo.group()
+'Batwoman'
+>>> mo = batRegex.search('The adventures of Batwowowoman')
+>>> mo.group()
+'Batwowowoman'
+>>> #* means zero or more
+
+The + says the group matches one or more times.
+Example:
+>>> batRegex = re.compile(r'Bat(wo)+man')
+>>> mo = batRegex.search('The adventures of Batwowowoman')
+>>> mo.group()
+'Batwowowoman'
+>>> 
+>>> mo = batRegex.search('The adventures of Batman')
+>>> mo.group()
+Traceback (most recent call last):
+  File "<input>", line 1, in <module>
+    mo.group()
+AttributeError: 'NoneType' object has no attribute 'group'
+
+The curly braces can match a specific number of times.
+Example:
+>>> haRegex = re.compile(r'(Ha){3}')
+>>> mo = haRegex.search('He said "HaHaHa"')
+>>> mo.group()
+'HaHaHa'
+>>> 
+>>> 
+>>> phoneRegex = re.compile(r'((\d\d\d-)?\d\d\d-\d\d\d\d(,)
+?){3}')
+>>> phoneRegex.search('My phone number is 415-555-4242,555-
+444-3333,544-333-1234. Call me tomorrow')
+<re.Match object; span=(19, 57), match='415-555-4242,555-44
+4-3333,544-333-1234'>
+>>> mo = phoneRegex.search('My phone number is 415-555-4242
+,555-444-3333,544-333-1234. Call me tomorrow')
+>>> mo.group()
+'415-555-4242,555-444-3333,544-333-1234'
+
+The curly braces with two numbers matches a minimum and maximum number of times.
+Leaving out the first or second number in the curly braces says there is no minimum or maximum.
+"Greedy matching" matches the longest string possible, "nongreedy matching" (or "lazy matching") matches the shortest string possible.
+Putting a question mark after the curly braces makes it do a nongreedy/lazy match.
+Example of above:
+>>> digitRegex = re.compile(r'(\d){3,5}')
+>>> digitRegex.search('1234567890')
+<re.Match object; span=(0, 5), match='12345'>
+>>> digitRegex = re.compile(r'(\d){3,5}?')
+>>> digitRegex.search('1234567890')
+<re.Match object; span=(0, 3), match='123'>

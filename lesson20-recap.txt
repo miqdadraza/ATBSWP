@@ -1,0 +1,11 @@
+upper() and lower() return an uppercase or lowercase string.
+isupper(), islower(), isalpha(), isalnum(), isdecimal(), isspace(), istitle() returns True or False if the string is that uppercase, lowercase, alphabetical letters, and so on. You could use indices also here, for example 'Hello World'[5].isspace will give you True
+startswith() and endswith() also return bools.
+‘,'.join([‘cat', ‘dog']) returns a string that combines the strings in the given list. Example ','.join(["cat","dog"]) will return a STRING "cat,dog". The comma could be anything like \n\n is 2 new lines
+‘Hello world'.split() returns a list of strings split from the string it's called on. This will return ['Hello','World'] In the paranthesis you could add the delimiting character, like >>> 'Hello World'.split('l') gives ['He', '', 'o Wor', 'd']
+rjust(10) ,ljust(5), center(4) returns a string padded with spaces. Adds whitespace padding by number of spaces. Second argument could be passed with the delimiting character, like rjust(10,'*') will put 10 *s
+strip(), rstrip(), lstrip() returns a string with whitespace stripped off the sides. Argument could be passed to remove something else and not whitespace. >>> 'SpamSpamBaconSpamEggsSpamSpam'.strip('ampS') gives 'BaconSpamEggs'
+replace() will replace all occurrences of the first string argument with the second string argument.
+Pyperclip has copy() and paste() functions for getting and putting strings on the clipboard.
+
+Remember, to modify a variable, you'd have to do spam=spam.upper()
