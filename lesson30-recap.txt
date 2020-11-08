@@ -1,0 +1,114 @@
+Files have a name and a path.
+The root folder is the lowest folder.
+In a file path, the folders and filename are separated by backslashes on Windows and forward slashes on Linux and Mac.
+Use the os.path.join() function to combine folders with the correct slash.
+The current working directory is the oflder that any relative paths are relative to.
+os.getcwd() will return the current working directory.
+os.chdir() will change the current working directory.
+Absolute paths begin with the root folder, relative paths do not.
+The . folder represents "this folder", the .. folder represents "the parent folder".
+os.path.abspath() returns an absolute path form of the path passed to it.
+os.path.relpath() returns the relative path between two paths passed to it.
+os.makedirs() can make folders.
+os.path.getsize() returns a file's size.
+os.listdir() returns a list of strings of filenames.
+os.path.exists() returns True if the filename passed to it exists.
+os.path.isfile() and os.path.isdir() return True if they were passed a filename or file path.
+
+
+
+Examples:
+
+
+>>> import os
+>>> os.path.join('folder1', 'folder2', 'folder3', 'file.png')
+'folder1/folder2/folder3/file.png'
+>>> os.sep
+'/'
+>>> os.getcwd()
+'/Users/miqdadraza/Documents/pythonprojects/ATBSWP'
+>>> 'spam.png'
+'spam.png'
+
+
+>>> os.chdir('..')
+>>> os.getcwd()
+'/Users/miqdadraza/Documents/pythonprojects'
+>>> os.chdir('./ATBSWP/')
+>>> os.getcwd()
+'/Users/miqdadraza/Documents/pythonprojects/ATBSWP'
+
+
+>>> os.path.abspath('spam.png')
+'/Users/miqdadraza/Documents/pythonprojects/ATBSWP/spam.png'
+>>> os.path.abspath('../../spam.png')
+'/Users/miqdadraza/Documents/spam.png'
+>>> os.path.isabs('spam.png')
+False
+>>> os.path.relpath('/Users/folder1/folder2/spam.png', '/Users/')
+'folder1/folder2/spam.png'
+>>> os.path.dirname('/Users/folder1/folder2/spam.png')
+'/Users/folder1/folder2'
+>>> os.path.basename('/Users/folder1/folder2/spam.png')
+'spam.png'
+>>> os.path.exists('/Users/folder1/folder2/spam.png')
+False
+>>> os.path.isfile('/Users/folder1/folder2/spam.png')
+False
+>>> os.path.isdir('/Users/folder1/folder2/spam.png')
+False
+>>> 
+>>> 
+>>> 
+>>> os.path.getsize('./lesson3-recap.txt')
+583
+
+
+
+>>> os.listdir('./')
+['hello.py', 'scopes.py', 'lesson27-recap.txt', 'phonenumberre.py', 'lesson2-rec
+ap.txt', 'examplechap9.py', 'ATBSWP.code-workspace', 'lesson14-recap.txt', 'less
+on9-recap.txt', 'characterCount.py', 'lesson19-recap.txt', 'lesson4-recap.txt', 
+'ifexample.py', 'lesson13-recap.txt', 'lesson26-recap.txt', 'lesson3-recap.txt',
+ 'whileexample.py', 'fivetimes.py', 'regex_phonenumbet.py', 'lesson20-recap.txt'
+, 'lesson15-recap.txt', 'data-structures-tictactoe-dict.txt', 'lesson8-recap.txt
+', 'returnexample.py', 'lesson5-recap.txt', 'lesson25-recap.txt', 'lesson10-reca
+p.txt', 'lesson28-recap.txt', 'functionsexample.py', 'exercises', 'lesson16-reca
+p.txt', 'elifexample.py', 'catsiownexample.py', 'yourname.py', 'lesson23-recap.t
+xt', 'dividebyzeroexample.py', 'lesson6-recap.txt', 'sysexit.py', 'lesson24-reca
+p.txt', 'lesson30-recap.txt', 'lesson11-recap.txt', 'ifelseexample.py', '.git', 
+'.vscode', 'lesson17-recap.txt', 'listsandstrings.py', 'lesson22-recap.txt', 'le
+sson7-recap.txt', 'continueexample.py']
+
+
+
+>>> totalSize = 0
+>>> for filename in os.listdir('./'):
+...         if os.path.isfile(os.path.join('./', filename)):
+...                 continue   # basically this is saying that is the path is a file, dont use this and continue with the loop. This for loop will give the size of all folders only
+...         totalSize = totalSize + os.path.getsize(os.path.join('./', filename)
+)
+...         
+...     
+... 
+>>> 
+>>> totalSize
+640
+
+
+
+>>> os.makedirs('./testfolder/walnut/waffles')
+
+
+
+>>> totalSize = 0
+>>> for filename in os.listdir('./'):
+...         if not os.path.isfile(os.path.join('./', filename)):
+...                 continue #same as above but there is a not now, meaning anywhere its not a file, continue with loop ignoring where its not a file
+...         totalSize = totalSize + os.path.getsize(os.path.join('./', filename)
+)        
+...         
+...     
+... 
+>>> totalSize
+34018
