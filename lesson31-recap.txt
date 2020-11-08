@@ -1,0 +1,75 @@
+The open() function will return a file object which has reading and writing –related methods.
+Pass ‘r' (or nothing) to open() to open the file in read mode. Pass ‘w' for write mode. Pass ‘a' for append mode.
+Opening a nonexistent filename in write or append mode will create that file.
+Call read() or write() to read the contents of a file or write a string to a file.
+Call readlines() to return a list of strings of the file's content.
+Call close() when you are done with the file.
+The shelve module can store Python values in a binary file.
+The shelve.open() function returns a dictionary-like shelf value.
+
+
+
+Examples:
+
+>>> helloFile = open('./hello.txt') #open file in read mode, default mode
+>>> helloFile.read()
+'hello world!\nHow are you?'
+>>> helloFile.close()
+>>> helloFile = open('./hello.txt') #open file in read mode, default mode
+>>> helloFile.readlines() #returns a list of strings
+['hello world!\n', 'How are you?']
+>>> helloFile.close()
+
+
+
+>>> helloFile = open('./hello2.txt', 'w') #open file in write mode, will overwri
+te
+>>> helloFile.write('Hello!!!!!!!!!!!!')
+17
+>>> helloFile.write('Hello!!!!!!!!!!!!')
+17
+>>> helloFile.write('Hello!!!!!!!!!!!!')
+17
+>>> helloFile.write('Hello!!!!!!!!!!!!')
+17
+>>> helloFile.close()
+
+
+
+>>> baconFile = open('bacon.txt', 'w')
+>>> baconFile.write('Bacon is not a vegetable')
+24
+>>> baconFile.close()
+>>> import os
+>>> print(os.getcwd())
+/Users/miqdadraza/Documents/pythonprojects/ATBSWP
+>>> baconFile = open('bacon.txt', 'a') #append mode, will not over write
+>>> baconFile.write('\nBacon is not a vegetable')
+25
+>>> baconFile.close()
+
+
+
+
+
+>>> import shelve
+>>> shelfFile = shelve.open('mydata')
+>>> shelfFile['cats'] = ['Zophie', 'Pooka', 'Simon', 'Fat-tail', 'Cleo']
+>>> shelfFile.close()
+>>> 
+>>> 
+>>> 
+>>> shelfFile = shelve.open('mydata')
+>>> shelfFile['cats']
+['Zophie', 'Pooka', 'Simon', 'Fat-tail', 'Cleo']
+>>> shelfFile.close()
+
+
+
+
+>>> shelfFile = shelve.open('mydata')
+>>> list(shelfFile.keys())
+['cats']
+>>> list(shelfFile.values())
+[['Zophie', 'Pooka', 'Simon', 'Fat-tail', 'Cleo']]
+ 
