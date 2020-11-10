@@ -1,0 +1,28 @@
+Traceback (most recent call last):
+  File "/Users/miqdadraza/Documents/pythonprojects/ATBSWP/raiseandassert.py", line 15, in boxPrint
+    raise Exception('"symbol" needs to be a string of length 1') #error message is called a traceback, line at which error happened
+Exception: "symbol" needs to be a string of length 1
+Traceback (most recent call last):
+  File "/Users/miqdadraza/Documents/pythonprojects/ATBSWP/raiseandassert.py", line 15, in boxPrint
+    raise Exception('"symbol" needs to be a string of length 1') #error message is called a traceback, line at which error happened
+Exception: "symbol" needs to be a string of length 1
+Traceback (most recent call last):
+  File "/Users/miqdadraza/Documents/pythonprojects/ATBSWP/raiseandassert.py", line 15, in boxPrint
+    raise Exception('"symbol" needs to be a string of length 1') #error message is called a traceback, line at which error happened
+Exception: "symbol" needs to be a string of length 1
+Traceback (most recent call last):
+  File "/Users/miqdadraza/Documents/pythonprojects/ATBSWP/raiseandassert.py", line 15, in boxPrint
+    raise Exception('"symbol" needs to be a string of length 1') #error message is called a traceback, line at which error happened
+Exception: "symbol" needs to be a string of length 1
+Traceback (most recent call last):
+  File "/Users/miqdadraza/Documents/pythonprojects/ATBSWP/raiseandassert.py", line 15, in boxPrint
+    raise Exception('"symbol" needs to be a string of length 1') #error message is called a traceback, line at which error happened
+Exception: "symbol" needs to be a string of length 1
+Traceback (most recent call last):
+  File "/Users/miqdadraza/Documents/pythonprojects/ATBSWP/raiseandassert.py", line 15, in boxPrint
+    raise Exception('"symbol" needs to be a string of length 1') #error message is called a traceback, line at which error happened
+Exception: "symbol" needs to be a string of length 1
+Traceback (most recent call last):
+  File "/Users/miqdadraza/Documents/pythonprojects/ATBSWP/raiseandassert.py", line 15, in boxPrint
+    raise Exception('"symbol" needs to be a string of length 1') #error message is called a traceback, line at which error happened
+Exception: "symbol" needs to be a string of length 1
