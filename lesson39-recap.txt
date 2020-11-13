@@ -1,0 +1,52 @@
+The Requests module is a third-party module for downloading web pages and files.
+requests.get() returns a Response object.
+The raise_for_status() Response method will raise an exception if the download failed.
+You can save a downloaded file to your hard drive with calls to the iter_content() method.
+
+
+Example:
+
+>>> import requests
+>>> res = requests.get('https://automatetheboringstuff.com/files/rj.txt')
+>>> res.status_code
+200
+>>> len(res.text)
+178978
+
+>>> print(res.text[:500]) #prints 0 to 500 characters
+The Project Gutenberg EBook of Romeo and Juliet, by William Shakespeare
+
+This eBook is for the use of anyone anywhere at no cost and with
+almost no restrictions whatsoever.  You may copy it, give it away or
+re-use it under the terms of the Project Gutenberg License included
+with this eBook or online at www.gutenberg.org/license
+
+
+Title: Romeo and Juliet
+
+Author: William Shakespeare
+
+Posting Date: May 25, 2012 [EBook #1112]
+Release Date: November, 1997  [Etext #1112]
+
+Language: Eng
+>>> res.raise_for_status() #raise exception if download fails
+>>> badRes = requests.get('http://automatetheboringstuff.com/DDdesfded')
+>>> badRes.raise_for_status()
+Traceback (most recent call last):
+  File "<input>", line 1, in <module>
+    badRes.raise_for_status()
+  File "/usr/local/lib/python3.8/site-packages/requests/models.py", line 941, in
+ raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 404 Client Error: Not Found for url: http://autom
+atetheboringstuff.com/DDdesfded
+>>> playFile = open('RomeoAndJuliet.txt','wb') #writing to a different file
+>>> for chunk in res.iter_content(100000):
+...         playFile.write(chunk)
+...         
+...     
+... 
+100000
+78978
+>>> playFile.close()
