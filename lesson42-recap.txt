@@ -1,0 +1,61 @@
+The OpenPyXL third-party module handles Excel spreadsheets (.xlsx files).
+openpyxl.load_workbook(filename) returns a Workbook object.
+get_sheet_names() and get_sheet_by_name() help get Worksheet objects.
+The square brackets in sheet[‘A1'] get Cell objects.
+Cell objects have a "value" member variable with the content of that cell.
+The cell(row=x, column=y) method also returns a Cell object from a sheet.
+
+
+Examples:
+
+>>> import openpyxl
+>>> import os
+>>> os.getcwd()
+'/Users/miqdadraza/Documents/pythonprojects/ATBSWP'
+>>> 
+>>> 
+>>> 
+>>> workbook = openpyxl.load_workbook('example.xlsx')
+>>> type(workbook)
+<class 'openpyxl.workbook.workbook.Workbook'>
+>>> sheet = workbook.get_sheet_by_name('Sheet1')
+<bpython-input-11>:1: DeprecationWarning: Call to deprecated function get_sheet_
+by_name (Use wb[sheetname]).
+  sheet = workbook.get_sheet_by_name('Sheet1')
+>>> sheet = workbook['Sheet1']
+>>> workbook.get_sheet_names
+<bound method Workbook.get_sheet_names of <openpyxl.workbook.workbook.Workbook o
+bject at 0x107242f10>>
+>>> workbook.get_sheet_names()
+<bpython-input-14>:1: DeprecationWarning: Call to deprecated function get_sheet_
+names (Use wb.sheetnames).
+  workbook.get_sheet_names()
+['Sheet1', 'Sheet2', 'Sheet3']
+>>> sheet['A1']
+<Cell 'Sheet1'.A1>
+>>> cell = sheet['A1']
+>>> cell.value
+datetime.datetime(2015, 4, 5, 13, 34, 2)
+>>> str(cell.value)
+'2015-04-05 13:34:02'
+>>> str(sheet['A1'].value)
+'2015-04-05 13:34:02'
+>>> sheet['B1'].value
+'Apples'
+>>> sheet['C1'].value
+73
+>>> sheet.cell(row=1, column=2) #row and column begin at 1, exact same as sheet[
+B1']
+<Cell 'Sheet1'.B1>
+>>> for i in range (1,8):
+...         print(i, sheet.cell(row=i, column=2).value)
+...         
+...     
+... 
+1 Apples
+2 Cherries
+3 Pears
+4 Oranges
+5 Apples
+6 Bananas
+7 Strawberries

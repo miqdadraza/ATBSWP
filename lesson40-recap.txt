@@ -1,0 +1,18 @@
+Web pages are plaintext files formatted as HTML.
+HTML can be parsed with the BeautifulSoup module.
+BeautifulSoup is imported with the name bs4.
+Pass the string with the HTML to the bs4.BeautfiulSoup() function to get a Soup object.
+The Soup object has a select() method that can be passed a string of the CSS selector for an HTML tag.
+You can get a CSS selector string from the browser's developer tools by right-clicking the element and selecting Copy CSS Path.
+The select() method will return a list of matching Element objects.
+
+
+Examples:
+>>> import bs4
+>>> import requests
+>>> res = requests.get("https://www.amazon.com/Automate-Boring-Stuff-Python-2nd/dp/1593279922/ref=sr_1_1?dchild=1&keywords=automate+the+boring+stuff&qid=1605381661&sr=8-1", headers={"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.110 Safari/537.36"}) #need all this for reading like a browser
+>>> res.raise_for_status()
+>>> soup = bs4.BeautifulSoup(res.text) #passing html text in bs4
+
+>>> soup = bs4.BeautifulSoup(res.text, 'html.parser') #passing html text in bs4
+

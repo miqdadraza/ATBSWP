@@ -41,6 +41,8 @@ Traceback (most recent call last):
     raise HTTPError(http_error_msg, response=self)
 requests.exceptions.HTTPError: 404 Client Error: Not Found for url: http://autom
 atetheboringstuff.com/DDdesfded
+
+
 >>> playFile = open('RomeoAndJuliet.txt','wb') #writing to a different file
 >>> for chunk in res.iter_content(100000):
 ...         playFile.write(chunk)

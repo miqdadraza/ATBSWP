@@ -1,0 +1,45 @@
+You can view and modify a sheet's name with its "title" member variable.
+Changing a cell's value is done using the square brackets, just like changing a value in a list or dictionary.
+Changes you make to the workbook object can be saved with the save() method.
+
+
+Examples:
+
+>>> import openpyxl
+>>> wb = openpyxl.Workbook() #starts with a new workbook
+>>> wb
+<openpyxl.workbook.workbook.Workbook object at 0x1099a4850>
+>>> wb.get_sheet_names()
+<bpython-input-31>:1: DeprecationWarning: Call to deprecated function get_sheet_
+names (Use wb.sheetnames).
+  wb.get_sheet_names()
+['Sheet']
+>>> sheet = wb["Sheet"]
+>>> sheet
+<Worksheet "Sheet">
+>>> sheet['A1'].value
+>>> sheet['A1'].value == None
+True
+>>> sheet['A1'] = 42
+>>> sheet['A2'] = 'Hello'
+>>> wb.save('chapter43_exampleexcel.xlsx')
+>>> sheet2 = wb.create_sheet()
+>>> wb.get_sheet_names()
+<bpython-input-42>:1: DeprecationWarning: Call to deprecated function get_sheet_names (Use wb.sheetnames).
+  wb.get_sheet_names()
+['Sheet', 'Sheet1']
+>>> sheet2.title = 'My New Sheet Name'
+>>> wb.get_sheet_names()
+<bpython-input-44>:1: DeprecationWarning: Call to deprecated function get_sheet_
+names (Use wb.sheetnames).
+  wb.get_sheet_names()
+['Sheet', 'My New Sheet Name']
+>>> wb.save('chapter43_exampleexcel2.xlsx')
+>>> wb.create_sheet(index=0, title='My other sheet')
+<Worksheet "My other sheet">
+>>> wb.save('chapter43_exampleexcel3.xlsx')
+>>> wb.get_sheet_names()
+<bpython-input-48>:1: DeprecationWarning: Call to deprecated function get_sheet_
+names (Use wb.sheetnames).
+  wb.get_sheet_names()
+['My other sheet', 'Sheet', 'My New Sheet Name']
