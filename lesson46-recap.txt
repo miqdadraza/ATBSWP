@@ -1,0 +1,23 @@
+Below are steps to send an email (https://automatetheboringstuff.com/chapter16/):
+
+>>> import smtplib
+>>> conn = smtplib.SMTP('smtp-mail.outlook.com', 587)
+>>> type(conn) #connection object
+<class 'smtplib.SMTP'>
+>>> conn
+<smtplib.SMTP object at 0x109d5c190>
+>>> conn.ehlo() #need to start to call the connection
+(250, b'SJ0PR13CA0114.outlook.office365.com Hello [68.231.36.180]\nS
+IZE 157286400\nPIPELINING\nDSN\nENHANCEDSTATUSCODES\nSTARTTLS\n8BITM
+IME\nBINARYMIME\nCHUNKING\nSMTPUTF8')
+>>> conn.starttls() #need to call this to send password encrypted
+(220, b'2.0.0 SMTP server ready')
+>>> conn.login('miqdadraza.bhurani@hotmail.com', 'Superman<3')
+(235, b'2.7.0 Authentication successful')
+>>> conn.sendmail('miqdadraza.bhurani@hotmail.com', 'miqdad@bhurani.
+net', 'Subject: So long...\n\nDear Al,\n So long and thanks for all 
+the fish, \n\n from Al')
+{}
+>>> conn.quit()
+(221, b'2.0.0 Service closing transmission channel')
+>>> 

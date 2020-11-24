@@ -7,3 +7,87 @@ Run objects also have a "text" member variable.
 Run objects have a "bold", "italic", and "underline" member variables which can be set to True or False.
 Paragraph and run objects have a "style" member variable that can be set to one of Word's built-in styles.
 Word files can be created by calling add_paragraph() and add_run() to append text content.
+
+
+
+
+Examples:
+
+>>> import docx
+>>> d = docx.Document('demo.docx')
+>>> d.paragraphs
+[<docx.text.paragraph.Paragraph object at 0x10cd83520
+>, <docx.text.paragraph.Paragraph object at 0x10cd833
+70>, <docx.text.paragraph.Paragraph object at 0x10cd8
+33a0>, <docx.text.paragraph.Paragraph object at 0x10c
+d83c40>, <docx.text.paragraph.Paragraph object at 0x1
+0cd83c70>, <docx.text.paragraph.Paragraph object at 0
+x10cd83c10>, <docx.text.paragraph.Paragraph object at
+ 0x10cd836a0>]
+>>> d.paragraphs #member variable paragraphs
+[<docx.text.paragraph.Paragraph object at 0x10cd44580
+>, <docx.text.paragraph.Paragraph object at 0x10cd44b
+b0>, <docx.text.paragraph.Paragraph object at 0x10cd4
+4760>, <docx.text.paragraph.Paragraph object at 0x10c
+d44610>, <docx.text.paragraph.Paragraph object at 0x1
+0cd44970>, <docx.text.paragraph.Paragraph object at 0
+x10cd44460>, <docx.text.paragraph.Paragraph object at
+ 0x10cd44dc0>]
+>>> d.paragraphs[0]
+<docx.text.paragraph.Paragraph object at 0x10cd44280>
+>>> d.paragraphs[0].text #member variable text
+'Document Title'
+>>> d.paragraphs[1].text #member variable text at ind
+ex 1
+'A plain paragraph having some bold and some italic.'
+>>> p = d.paragraphs[1]
+>>> p.runs
+[<docx.text.run.Run object at 0x10cd2aa00>, <docx.tex
+t.run.Run object at 0x10cd8e5e0>, <docx.text.run.Run 
+object at 0x10cd8eaf0>, <docx.text.run.Run object at 
+0x10cd8ed90>]
+>>> p.runs #run start at new style
+[<docx.text.run.Run object at 0x10cdb4550>, <docx.tex
+t.run.Run object at 0x10cdb4580>, <docx.text.run.Run 
+object at 0x10cdb4d30>, <docx.text.run.Run object at 
+0x10cdb4e20>]
+>>> p.runs[0].text
+'A plain paragraph having some '
+>>> p.runs[1].text
+'bold'
+>>> p.runs[2].text
+' and some '
+>>> p.runs[3].text
+'italic.'
+
+>>> p.runs[1].bold
+True
+>>> p.runs[3].bold
+>>> p.runs[3].bold == True
+False
+>>> p.runs[3].bold = True
+>>> p.runs[3].text = 'italic and underlined'
+>>> d.save('demo2.docx')
+>>> p.style
+_ParagraphStyle('Normal') id: 4510907312
+>>> p.style = 'Title'
+>>> d.save('demo3.docx')
+
+
+>>> d = docx.Document() #will create blank new in mem
+ory
+>>> d.add_paragraph('Hello, this is a paragraph')
+<docx.text.paragraph.Paragraph object at 0x10cd830a0>
+>>> d.add_paragraph('Hello, this is another paragraph
+')
+<docx.text.paragraph.Paragraph object at 0x10cdca0a0>
+>>> d.save('demo4.docx')
+>>> para1 = d.paragraphs[0]
+>>> para1.add_run('This is a new run')
+<docx.text.run.Run object at 0x10aade460>
+
+>>> para1.runs
+[<docx.text.run.Run object at 0x10cd2a910>, <docx.tex
+t.run.Run object at 0x10cd2aa00>]
+>>> para1.runs[1].bold = True
+>>> d.save('demo5.docx')
