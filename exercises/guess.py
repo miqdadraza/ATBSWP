@@ -2,9 +2,9 @@
 
 import random
 
-print("Hello, what is your name?")
-name = input()
-
+""" print("Hello, what is your name?")
+name = input() """
+name = "Miqdad"
 print("Well " + str(name) + ", I am thinking of a number between 1 and 20!")
 secretnumber = random.randint(1,20) #generate a random number between 1 and 20, including 1 and 20
 
