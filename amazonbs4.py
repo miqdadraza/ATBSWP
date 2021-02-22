@@ -1,4 +1,5 @@
-import bs4, requests
+import bs4, requests, pylint
+
 
 def getAmazonPrice(productURL):
     res = requests.get(productURL)
