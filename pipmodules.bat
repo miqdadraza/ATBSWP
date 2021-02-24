@@ -1,0 +1,17 @@
+pip3 install send2trash==1.5.0
+pip3 install requests==2.21.0
+pip3 install beautifulsoup4==4.7.1
+pip3 install selenium==3.141.0
+pip3 install openpyxl==2.6.1
+pip3 install PyPDF2==1.26.0
+pip3 install python-docx==0.8.10
+pip3 install imapclient==2.1.0
+pip3 install pyzmail36==1.0.4
+pip3 install twilio
+pip3 install ezgmail
+pip3 install ezsheets
+pip3 install pillow==6.0.0
+pip3 install pyobjc-framework-Quartz==5.2
+pip3 install pyobjc-core==5.2
+pip3 install pyobjc==5.2
+pip3 install pyautogui
